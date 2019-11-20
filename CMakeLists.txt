@@ -3,4 +3,4 @@ project(Token_Finder C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Token_Finder main.c main.h)
+add_executable(Token_Finder src/main.c src/main.h)
