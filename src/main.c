@@ -6,5 +6,9 @@ int main() {
 }
 
 int isCharSymbol(char symbol) {
-  return  symbol != '"' && symbol != '\\';
+  return symbol != '"' && symbol != '\\';
+}
+
+int isEscapedSymbol(char symbol) {
+  return symbol == '\\' || symbol == 'n' || symbol == 't' || symbol == '"';
 }
