@@ -1,7 +1,18 @@
 #include "main.h"
 #include <stdio.h>
+#define stateNumber 5
+#define charType 5
 
 int main() {
+  int stateTransitionArray[stateNumber][charType] =
+      {
+          {0, 0, 0, 0, 0},
+          {2, 0, 0, 0, 0},
+          {4, 2, 3, 0, 0},
+          {0, 0, 0, 2, 0},
+          {0, 0, 0, 0, 0},
+      };
+
   return 0;
 }
 
