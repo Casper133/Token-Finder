@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 int main() {
-  printf("Hello, World!\n");
   return 0;
+}
+
+int isCharSymbol(char symbol) {
+  return  symbol != '"' && symbol != '\\';
 }
