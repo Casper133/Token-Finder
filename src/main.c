@@ -14,33 +14,33 @@ int main() {
           {0, 0, 0, 0, 0},
       };
 
-  int action;
+  printf("Enter the string:\n");
+  char str[50] = {};
+
+  int j = 0;
+  char c = '\0';
+
   do {
-    printf("(1) Check the string\n"
-           "(2) Exit\n"
-           "Enter the action:\n");
-    scanf("%d", &action);
+    scanf("%c", &c);
+    str[j++] = c;
+  } while (c != '\n');
 
-    if (action == 1) {
-      printf("Enter the string:\n");
-      char str[50] = {};
-      gets(str);
+  str[j - 1] = '\0';
 
-      int currentState = 1;
+  int currentState = 1;
 
-      for (int i = 0; i < strlen(str); i++) {
-        char currentSymbol = str[i];
-        int currentColumn = getTransitionTableColumn(currentSymbol, currentState);
-        currentState = stateTransitionArray[currentState][currentColumn];
-      }
+  for (int i = 0; i < strlen(str); i++) {
+    char currentSymbol = str[i];
+    int currentColumn = getTransitionTableColumn(currentSymbol, currentState);
+    currentState = stateTransitionArray[currentState][currentColumn];
+  }
 
-      if (currentState == 4) {
-        printf("String is correct\n");
-      } else {
-        printf("String is incorrect\n");
-      }
-    }
-  } while (action != 2);
+  if (currentState == 4) {
+    printf("\nString is correct\n");
+  } else {
+    printf("\nString is incorrect\n");
+  }
+
   return 0;
 }
 
