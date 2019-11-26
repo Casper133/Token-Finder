@@ -28,17 +28,44 @@ int main() {
   str[j - 1] = '\0';
 
   int currentState = 1;
+  int startIndex = -1;
+  int isNotFindString = 1;
 
   for (int i = 0; i < strlen(str); i++) {
     char currentSymbol = str[i];
     int currentColumn = getTransitionTableColumn(currentSymbol, currentState);
-    currentState = stateTransitionArray[currentState][currentColumn];
+    int nextState = stateTransitionArray[currentState][currentColumn];
+
+    if (currentSymbol == '\"') {
+      if (nextState == 4) {
+        printf("Correct string: ");
+
+        for (j = startIndex; j < i + 1; j++) {
+          printf("%c", str[j]);
+        }
+
+        printf("\n");
+
+        isNotFindString = 0;
+        currentState = 1;
+        startIndex = -1;
+        continue;
+      }
+
+      if (nextState == 2) {
+        startIndex = i;
+      }
+    }
+
+    if (startIndex == -1) {
+      continue;
+    }
+
+    currentState = nextState;
   }
 
-  if (currentState == 4) {
-    printf("\nString is correct\n");
-  } else {
-    printf("\nString is incorrect\n");
+  if (isNotFindString) {
+    printf("There are no C-strings in input string\n");
   }
 
   return 0;
