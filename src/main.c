@@ -52,7 +52,7 @@ int main() {
         continue;
       }
 
-      if (nextState == 2) {
+      if (nextState == 2 && startIndex == -1) {
         startIndex = i;
       }
     }
