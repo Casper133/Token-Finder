@@ -29,7 +29,7 @@ int main() {
 
   int currentState = 1;
   int startIndex = -1;
-  int isNotFindString = 1;
+  int isStringNotFound = 1;
 
   for (int i = 0; i < strlen(str); i++) {
     char currentSymbol = str[i];
@@ -46,7 +46,7 @@ int main() {
 
         printf("\n");
 
-        isNotFindString = 0;
+        isStringNotFound = 0;
         currentState = 1;
         startIndex = -1;
         continue;
@@ -64,7 +64,7 @@ int main() {
     currentState = nextState;
   }
 
-  if (isNotFindString) {
+  if (isStringNotFound) {
     printf("There are no C-strings in input string\n");
   }
 
